@@ -2,17 +2,65 @@
 <html>
 
 <head>
+  <title>页面已迁移</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <meta http-equiv="refresh" content="5;url=https://www.garchina.com">
+  <style>
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+   .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      padding: 12px 24px;
+      font-size: 18px;
+    }
+
+   .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    #countdown {
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    // 定义倒计时函数
+    function startCountdown() {
+      let timeLeft = 5;
+      const countdownElement = document.getElementById('countdown');
+
+      const countdownInterval = setInterval(() => {
+        countdownElement.innerHTML = timeLeft;
+        timeLeft--;
+
+        if (timeLeft < 0) {
+          clearInterval(countdownInterval);
+          window.location.href = 'https://www.garchina.com';
+        }
+      }, 1000);
+    }
+
+    // 在页面加载完成后启动倒计时
+    window.onload = startCountdown;
+  </script>
 </head>
 
 <body>
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div>
       <h1>此页面已更新至金光网址大全</h1>
-      <p>系统将于 5 秒后自动跳转</p>
-	  <p>请保存收藏新页面到收藏夹</p>
-	     <p>金光网址大全 https://www.garchina.com</p>
+      <p>系统将于 <span id="countdown">5</span> 秒后自动跳转</p>
+      <p>请保存收藏新页面到收藏夹</p>
       <a href="https://www.garchina.com" class="btn btn-primary">如没有自动跳转，点此跳转</a>
     </div>
   </div>
